@@ -1,0 +1,21 @@
+﻿@model TakipSistemi.Models.Siniflar.Takip
+@{
+    ViewBag.Title = "VeriEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    ViewBag.VeriEkle = "active";
+}
+
+<br />
+<h2>Yeni Veri Ekleme Sayfası</h2>
+<br />
+<form class="form-group ml-5 mr-5" method="post">
+    @Html.LabelFor(x => x.TalepNo)
+    @Html.TextBoxFor(x => x.TalepNo, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Tanim)
+    @Html.TextBoxFor(x => x.Tanim, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info" style="margin-top:10px">Kaydet</button>
+
+</form>
+

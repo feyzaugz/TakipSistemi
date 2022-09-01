@@ -1,0 +1,30 @@
+﻿@model TakipSistemi.Models.Siniflar.Kullanici
+@{
+    ViewBag.Title = "KullaniciEkle";
+    Layout = "~/Views/Shared/YoneticiLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Kullanıcı Sayfası</h2>
+<br />
+@using (Html.BeginForm("KullaniciEkle", "Kullanicilar", FormMethod.Post))
+{
+
+
+    @Html.LabelFor(x => x.KullaniciAd)
+    @Html.TextBoxFor(x => x.KullaniciAd, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.KullaniciSoyad)
+    @Html.TextBoxFor(x => x.KullaniciSoyad, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.KullaniciMail)
+    @Html.TextBoxFor(x => x.KullaniciMail, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Parola)
+    @Html.TextBoxFor(x => x.Parola, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.YetkiId)
+    @Html.DropDownListFor(x => x.YetkiId, null, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary" style="margin-top:10px">Kaydet</button>
+}

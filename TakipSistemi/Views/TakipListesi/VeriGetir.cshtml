@@ -1,0 +1,26 @@
+﻿@model Takip
+@{
+    ViewBag.Title = "VeriGetir";
+    Layout = "~/Views/Shared/YoneticiLayout.cshtml";
+}
+
+<br />
+<h2>Güncelleme Ekranı</h2>
+<br />
+@using (Html.BeginForm("VeriGuncelle", "Veri", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.KullaniciID);
+        @Html.LabelFor(x => x.TalepNo)
+        @Html.TextBoxFor(x => x.TalepNo, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Tanim)
+        @Html.TextBoxFor(x => x.Tanim, new { @class = "form-control" })
+        <br />
+        @Html.TextBoxFor(x => x.Yetkili, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.TalepNo, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.DurumAciklama, new { @class = "form-control" })
+    </div>
+}
+

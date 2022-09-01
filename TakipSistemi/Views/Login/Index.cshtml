@@ -1,0 +1,89 @@
+﻿@model Kullanici
+
+@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<body style="background-color: #666666;">
+
+    <div class="limiter">
+        <div class="container-login100">
+
+            <div class="wrap-login100">
+
+
+                @using (Html.BeginForm("KullaniciLogin1", "Login", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="login100-form validate-form">
+                        <span class="login100-form-title p-b-43">
+                            Giriş Yap
+                        </span>
+
+                        <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+
+
+
+
+
+                            @Html.TextBoxFor(x => x.KullaniciMail, new { @class = "input100" })
+                            <span class="focus-input100"></span>
+                            <span class="label-input100">Kullanıcı Adı</span>
+                            @Html.ValidationMessageFor(x => x.KullaniciMail, "", new { @style = "color:red" })
+
+                        </div>
+
+
+                        <div class="wrap-input100 validate-input" data-validate="Password is required">
+
+
+
+                            @Html.TextBoxFor(x => x.Parola, new { @class = "input100",Type="password" }) @*type=password , şifre gizleme*@
+                            <span class="focus-input100"></span>
+                            <span class="label-input100">Parola</span>
+                            @Html.ValidationMessageFor(x => x.Parola, "", new { @style = "color:red" })
+                        </div>
+
+                        <div class="flex-sb-m w-full p-t-3 p-b-32">
+                            <div class="contact100-form-checkbox">
+                                <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                                <label class="label-checkbox100" for="ckb1">
+                                    Beni Hatırla
+                                </label>
+                            </div>
+
+                            <div>
+                                <a href="#" class="txt1">
+                                    Şifremi Unuttum?
+                                </a>
+                            </div>
+                        </div>
+
+
+
+                        <div class="container-login100-form-btn">
+                            <button type="submit" class="login100-form-btn">
+
+                                Giriş Yap
+                            </button>
+                        </div>
+
+                        <h1>@ViewBag.Sayac</h1>
+
+
+
+                    </div>
+                }
+
+                <div class="login100-more" style="background-image: url('/Aydem.jpg');">
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+</body>

@@ -1,0 +1,29 @@
+﻿@using TakipSistemi.Models.Siniflar
+@model List<Kullanici>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/YoneticiLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <th>Kullanıcı Adı</th>
+    <th>Kullanıcı Soyadı</th>
+    <th>Kullanıcı Maili</th>
+    <th>Parola</th>
+    <th>Yetki</th>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.KullaniciAd</td>
+            <td>@k.KullaniciSoyad</td>
+            <td>@k.KullaniciMail</td>
+            <td>@k.Parola</td>
+            <td>@k.Yetki.YetkiAdi</td>
+            <td><a href="/Kullanicilar/KullaniciSil/@k.KullaniciID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Kullanicilar/KullaniciGetir/@k.KullaniciID" class="btn btn-warning">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<td><a href="/Kullanicilar/KullaniciEkle" class="btn btn-success">Yeni Kullanıcı Ekle</a></td>
+
+

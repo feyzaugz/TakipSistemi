@@ -1,0 +1,33 @@
+﻿@using TakipSistemi.Models.Siniflar
+@model List<Takip>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    int sayac = 1;
+    ViewBag.TakipListesi = "active";
+}
+
+<table class="table table-bordered" style="margin-top:20px; background-color:lightgray;color:black">
+    <th>Sıra No</th>
+    <th>Dosya No</th>
+    <th>Tarih</th>
+    <th>Satın Alma Yetkilisi</th>
+    <th>Talep No</th>
+    <th>İşin Kısa Tanımı</th>
+    <th>Güncelle</th>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@sayac</td>
+            <td>@k.DosyaNo</td>
+            <td>@k.Tarih</td>
+            <td>@k.Yetkili</td>
+            <td>@k.TalepNo</td>
+            <td>@k.Tanim</td>
+            <td>
+                <a href="@Url.Action("VeriGetir", "TakipListesi", new {id=k.TakipId})" class="btn btn-warning">Güncelle</a>
+            </td>
+        </tr>
+        sayac++;
+    }
+</table>

@@ -1,0 +1,38 @@
+﻿@model TakipSistemi.Models.Siniflar.Kullanici
+@{
+    ViewBag.Title = "KullaniciGetir";
+    Layout = "~/Views/Shared/YoneticiLayout.cshtml";
+}
+
+<br />
+<h2>Kullanıcı Güncelleme Ekranı</h2>
+<br />
+@using (Html.BeginForm("KullaniciGuncelle", "Kullanicilar", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <div class="container">
+            <div class="tab-content">
+
+                @Html.LabelFor(x => x.KullaniciAd)
+                @Html.TextBoxFor(x => x.KullaniciAd, new { @class = "form-control" })
+                <br />
+                @Html.LabelFor(x => x.KullaniciSoyad)
+                @Html.TextBoxFor(x => x.KullaniciSoyad, new { @class = "form-control" })
+                <br />
+                @Html.LabelFor(x => x.KullaniciMail)
+                @Html.TextBoxFor(x => x.KullaniciMail, new { @class = "form-control" })
+                <br />
+                @Html.LabelFor(x => x.Parola)
+                @Html.TextBoxFor(x => x.Parola, new { @class = "form-control" })
+                <br />
+                @Html.LabelFor(x => x.YetkiId)
+                @Html.DropDownListFor(x => x.YetkiId, null, new { @class = "form-control" })
+                <br />
+                @Html.HiddenFor(x => x.KullaniciID)
+                <button class="btn btn-warning">Güncelle</button>
+            </div>
+        </div>
+    </div>
+}

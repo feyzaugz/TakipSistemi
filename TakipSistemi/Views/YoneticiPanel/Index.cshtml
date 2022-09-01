@@ -1,0 +1,35 @@
+﻿@model TakipSistemi.Models.Siniflar.Kullanici
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/YoneticiLayout.cshtml";
+    ViewBag.YoneticiPanel = "active";
+}
+<br />
+<h2>Bilgilerim</h2>
+<br />
+@using (Html.BeginForm("Index2", "YoneticiPanel", FormMethod.Post))
+{
+    <table class="table table-bordered">
+        <tr>
+            <td>
+                <label>Mail Adresi: @HttpContext.Current.User.Identity.Name</label>
+            </td>
+        </tr>
+        <tr>
+            <td>AD @Html.TextBoxFor(x => x.KullaniciAd, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>SOYAD @Html.TextBoxFor(x => x.KullaniciSoyad, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>MAİL @Html.TextBoxFor(x => x.KullaniciMail, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>PAROLA @Html.TextBoxFor(x => x.Parola, new { @class = "form-control", Type="password" })</td>
+        </tr>
+        <tr>
+            <td>YETKİ @Html.TextBoxFor(x => x.Yetki.YetkiAdi, new { @class = "form-control" , Readonly="true" })</td>
+        </tr>
+    </table>
+    <button class="btn btn-primary">GÜNCELLE</button>
+}
